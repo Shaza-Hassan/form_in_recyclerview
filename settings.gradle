@@ -1,0 +1,2 @@
+rootProject.name='form in recyclerview'
+include ':app'

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">form in recyclerview</string>
+    <string name="title">Title</string>
+    <string name="password_hints">Password hints</string>
+</resources>

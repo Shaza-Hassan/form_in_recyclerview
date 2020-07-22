@@ -1,0 +1,95 @@
+package com.coformatique.forminrecyclerview
+
+import android.text.InputType
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.coformatique.forminrecyclerview.EditTypes.mailEditText
+import com.coformatique.forminrecyclerview.EditTypes.nameEditText
+import com.coformatique.forminrecyclerview.EditTypes.passwordEditText
+import com.coformatique.forminrecyclerview.EditTypes.passwordHint
+import com.coformatique.forminrecyclerview.EditTypes.phoneEditTxt
+import com.coformatique.forminrecyclerview.EditTypes.title
+import kotlinx.android.synthetic.main.edit_text_item.view.*
+import kotlinx.android.synthetic.main.password_hint.view.*
+import kotlinx.android.synthetic.main.title_item.view.*
+
+/**
+ * Created by Shaza Hassan on 22-Jul-20.
+ */
+class EditForAdapter : RecyclerView.Adapter<EditForAdapter.ViewHolder>() {
+
+    var data =  listOf<EditForm>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    override fun getItemCount() = data.size
+
+    override fun getItemViewType(position: Int): Int {
+        val item = data[position]
+        return when(item.type){
+            nameEditText -> 1
+            mailEditText -> 2
+            passwordEditText -> 3
+            passwordHint -> 4
+            phoneEditTxt -> 5
+            title -> 6
+            else -> -1
+
+        }
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = data[position]
+        holder.bind(item)
+    }
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder.from(parent,viewType)
+    }
+    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+        fun bind(item: EditForm) {
+            when(item.type){
+                title -> {
+                    itemView.title_item.text = item.text
+                }
+                nameEditText -> {
+                    itemView.editTextItem.hint = item.text
+                }
+                mailEditText -> {
+                    itemView.editTextItem.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                    itemView.editTextItem.hint = item.text
+                }
+                phoneEditTxt -> {
+                    itemView.editTextItem.inputType = InputType.TYPE_CLASS_PHONE
+                    itemView.editTextItem.hint = item.text
+                }
+                passwordEditText -> {
+                    itemView.editTextItem.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    itemView.editTextItem.hint = item.text
+                }
+                passwordHint -> {
+                    itemView.passwordHint.hint = item.text
+                }
+            }
+        }
+
+        companion object {
+            fun from(parent: ViewGroup, viewType: Int): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val view= when(viewType){
+                    1,2,3,5 -> layoutInflater.inflate(R.layout.edit_text_item,parent,false)
+                    4 -> layoutInflater.inflate(R.layout.password_hint,parent,false)
+                    6 -> layoutInflater.inflate(R.layout.title_item,parent,false)
+                    else -> layoutInflater.inflate(R.layout.title_item,parent,false)
+                }
+                return ViewHolder(view)
+            }
+        }
+    }
+}
