@@ -18,20 +18,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fieldsToEdit(){
-        formsInEdit.add(EditForm(EditTypes.title,"Student data"))
-        formsInEdit.add(EditForm(EditTypes.nameEditText,"First name"))
-        formsInEdit.add(EditForm(EditTypes.nameEditText,"Last name"))
-        formsInEdit.add(EditForm(EditTypes.phoneEditTxt,"Phone no"))
-        formsInEdit.add(EditForm(EditTypes.mailEditText,"Email"))
-        formsInEdit.add(EditForm(EditTypes.passwordEditText,"Password"))
-        formsInEdit.add(EditForm(EditTypes.passwordHint,"Password hint"))
-        formsInEdit.add(EditForm(EditTypes.passwordEditText,"Conform password"))
-        formsInEdit.add(EditForm(EditTypes.nameEditText,"School name"))
-        formsInEdit.add(EditForm(EditTypes.title,"Parent data"))
-        formsInEdit.add(EditForm(EditTypes.nameEditText,"First name"))
-        formsInEdit.add(EditForm(EditTypes.nameEditText,"Last name"))
-        formsInEdit.add(EditForm(EditTypes.phoneEditTxt,"Phone no"))
-        formsInEdit.add(EditForm(EditTypes.mailEditText,"Email"))
+        formsInEdit.add(EditForm(EditTypes.title, "", "Student data"))
+        formsInEdit.add(EditForm(EditTypes.nameEditText, "", "First name"))
+        formsInEdit.add(EditForm(EditTypes.nameEditText, "", "Last name"))
+        formsInEdit.add(EditForm(EditTypes.phoneEditTxt, "", "Phone no"))
+        formsInEdit.add(EditForm(EditTypes.mailEditText, "", "Email"))
+        formsInEdit.add(EditForm(EditTypes.passwordEditText, "", "Password"))
+        formsInEdit.add(EditForm(EditTypes.passwordHint, "", "Password hint"))
+        formsInEdit.add(EditForm(EditTypes.passwordEditText, "", "Conform password"))
+        formsInEdit.add(EditForm(EditTypes.nameEditText, "", "School name"))
+        formsInEdit.add(EditForm(EditTypes.title, "", "Parent data"))
+        formsInEdit.add(EditForm(EditTypes.nameEditText, "", "First name"))
+        formsInEdit.add(EditForm(EditTypes.nameEditText, "", "Last name"))
+        formsInEdit.add(EditForm(EditTypes.phoneEditTxt, "", "Phone no"))
+        formsInEdit.add(EditForm(EditTypes.mailEditText, "", "Email"))
     }
 
 }
